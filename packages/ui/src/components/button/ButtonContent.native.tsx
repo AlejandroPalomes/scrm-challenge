@@ -1,20 +1,23 @@
-import React, { type FC } from "react";
-import { Pressable, Text } from "react-native";
+import React, { type FC } from 'react';
+import { Pressable, Text } from 'react-native';
+import { ButtonVariant, VariantStyles } from './Button';
 
 interface ButtonProps {
   onClick: () => void;
   label: string;
-	className: string;
+	variant?: ButtonVariant
 }
 
-export const ButtonContent: FC<ButtonProps> = ({ onClick, label, className }) => {
+export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant = 'primary' }) => {
+	const styles = VariantStyles.variant[variant];
+	const fullStyles = [styles.main, VariantStyles.base].join(' ')
+
   return (
     <Pressable
-			className={className}
+			className={fullStyles}
       onPress={onClick}
     >
-			<Text>Native</Text>
-      <Text>{label}</Text>
+      <Text className={styles.text + ' w-fit'}>{label} (Native)</Text>
     </Pressable>
   );
 }

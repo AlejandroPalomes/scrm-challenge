@@ -1,35 +1,51 @@
 import React, { type FC } from "react";
 import { ButtonContent } from "./ButtonContent";
 
-type ButtonVariant = 'primary' | 'alternative' | 'secondary';
+export type ButtonVariant = 'primary' | 'alternative' | 'secondary';
 export interface ButtonProps {
   onClick?: () => void;
   label: string;
 	variant?: ButtonVariant;
-	test?: string;
 }
 
-const getVariantStyles = (variant: ButtonVariant): string => {
-	switch (variant) {
-		case 'alternative':
-			return 'bg-purple text-white';
-		case 'secondary':
-			return 'border border-solid border-gray3 text-gray4 hover:border-black transition duration-150';
-		case 'primary':
-		default:
-			return 'bg-pink text-white hover:bg-pinkDark transition duration-150';
-	}
+type VariantStylesI = {
+	[key in ButtonVariant]: {
+		main: string,
+		text: string
+	};
 }
 
-export const Button: FC<ButtonProps> = ({ onClick, label, variant = 'primary', test }) => {
+interface ButtonSyles {
+	animation: string;
+	base: string;
+	variant: VariantStylesI;
+}
 
-	const variantStyles = getVariantStyles(variant);
+export const VariantStyles: ButtonSyles = {
+	animation: 'transition duration-150',
+	base: 'rounded-lg py-4 px-14 w-fit',
+	variant: {
+		alternative: {
+			main: 'bg-purple',
+			text: 'text-white',
+		},
+		secondary: {
+			main: 'border border-solid border-gray3 hover:border-black, active:border-black',
+			text: 'text-gray4'
+		},
+		primary: {
+			main: 'bg-pink text-white hover:bg-pinkDark active:bg-pinkDark',
+			text: 'text-white'
+		}}
+}
+
+export const Button: FC<ButtonProps> = ({ onClick, label, variant = 'primary' }) => {
+
   const handleOnClick = () => {
     onClick && onClick();
-		test && console.log(test);
   }
 
   return (
-    <ButtonContent className={test || `rounded-lg py-4 px-14 w-fit ${variantStyles}`} onClick={handleOnClick} label={label}/>
+    <ButtonContent variant={variant} onClick={handleOnClick} label={label}/>
   );
 }

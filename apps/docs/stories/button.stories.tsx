@@ -22,7 +22,6 @@ type Story = StoryObj<ButtonProps>;
 export const Primary: Story = {
   render: (props) => (
     <div className="">
-			hello
       <Button
         {...props}
       />

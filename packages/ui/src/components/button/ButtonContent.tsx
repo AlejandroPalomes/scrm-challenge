@@ -1,18 +1,21 @@
 import React, { type FC } from "react";
+import { ButtonVariant, VariantStyles } from "./Button";
 
 interface ButtonProps {
   onClick: () => void;
   label: string;
-	className: string;
+	variant: ButtonVariant;
 }
 
-export const ButtonContent: FC<ButtonProps> = ({ onClick, label, className }) => {
+export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant }) => {
+	const styles = VariantStyles.variant[variant];
+	const fullStyles = ['cursor-pointer', styles.main, styles.text, VariantStyles.animation, VariantStyles.base].join(' ')
   return (
-    <div
-      className={`cursor-pointer ${className}`}
+    <button
+      className={fullStyles}
       onClick={onClick}
     >
 			React - {label}
-    </div>
+    </button>
   );
 }

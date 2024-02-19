@@ -74,7 +74,7 @@ function App(): React.JSX.Element {
 					</Text>
         </Section>
 				<View>
-					<Button label="This the UI Button" onClick={() => console.log('Button pressed')} test="bg-pink"/>
+					<Button label="This the UI Button" onClick={() => console.log('Button pressed')}/>
 					<Pressable
 						className="rounded-lg py-4 px-14 w-fit bg-pink text-white active:bg-pinkDark"
 						onPress={() => console.log('pressed native button')}
@@ -83,7 +83,7 @@ function App(): React.JSX.Element {
 					</Pressable>
 				</View>
 				<Text
-					className="bg-pinkDark my-8"
+					className="bg-pinkDark my-12"
 				>Lelelelele</Text>
 				<Test/>
       </ScrollView>
