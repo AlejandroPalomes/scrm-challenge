@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import HelloWorld, { Button } from '@acme/ui';
+import HelloWorld, { Alert, Button } from '@acme/ui';
 import { Section } from './components/Section';
 
 function App(): React.JSX.Element {
@@ -37,7 +37,7 @@ function App(): React.JSX.Element {
         style={backgroundStyle}>
         <Section title={HelloWorld}>
 					<View className="flex flex-col w-fit space-y-4">
-						<Text>
+						<Text className="bg-error">
 							And welcome to this challenge, SCRM x Alejandro Palomes.
 						</Text>
 						<Text>
@@ -47,6 +47,7 @@ function App(): React.JSX.Element {
         </Section>
 				<View>
 					<Button label="Press me!" onClick={() => console.log('Button pressedc')}/>
+					<Alert variant="error" label="This an alert message"/>
 				</View>
       </ScrollView>
     </SafeAreaView>

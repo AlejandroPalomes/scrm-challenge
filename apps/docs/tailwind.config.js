@@ -7,6 +7,9 @@ export default {
 	],
   theme: {
 		colors: {
+			error: '#F03D3E',
+			success: '#007B40',
+			notification: '#D84910',
 			pink: '#E85B81',
 			pinkDark: '#C12F5D',
 			purple: '#5E48E8',

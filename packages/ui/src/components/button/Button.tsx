@@ -24,7 +24,7 @@ interface ButtonSyles {
 
 export const VariantStyles: ButtonSyles = {
 	animation: 'transition duration-150',
-	getBase: (disabled) => `rounded-lg py-4 px-14 w-fit ${disabled ? 'opacity-50' : ''}`,
+	getBase: (disabled) => `rounded-lg py-3.5 px-14 w-fit ${disabled ? 'opacity-50' : ''}`,
 	variant: {
 		alternative: {
 			getMain: (disabled) => `bg-purple ${!disabled ? 'hover:bg-purpleDark active:bg-purpleDark' : ''}`,
