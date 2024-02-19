@@ -1,5 +1,6 @@
 import { type FC } from 'react';
-import { type IconProps } from '../utils/icon.types';
+import { type IconProps } from '../../utils/icon.types';
+import AlertSvg from "../icons/alert.svg";
 
 export const AlertIcon: FC<IconProps> = ({ color = '#FFFFFF', size = 24}) => {
   return (

@@ -9,6 +9,9 @@ const monorepoMetroTools = getMetroTools();
 
 const androidAssetsResolutionFix = getMetroAndroidAssetsResolutionFix();
 
+const defaultConfig = getDefaultConfig(__dirname);
+const { assetExts, sourceExts } = defaultConfig.resolver;
+
 /**
  * Metro configuration
  * https://facebook.github.io/metro/docs/configuration
@@ -17,6 +20,7 @@ const androidAssetsResolutionFix = getMetroAndroidAssetsResolutionFix();
  */
 let config = {
   transformer: {
+		babelTransformerPath: require.resolve("react-native-svg-transformer"),
     unstable_enableSymlinks: false,
     unstable_enablePackageExports: false,
     // Apply the Android assets resolution fix to the public path...
@@ -26,7 +30,7 @@ let config = {
         experimentalImportSupport: false,
         inlineRequires: false,
       },
-    }),
+    })
   },
   server: {
     // ...and to the server middleware.
@@ -38,9 +42,11 @@ let config = {
   // This allows importing importing from all the project's packages.
   watchFolders: monorepoMetroTools.watchFolders,
   resolver: {
+		assetExts: assetExts.filter((ext) => ext !== 'svg'),
+    sourceExts: [...sourceExts, 'svg'],
     // Ensure we resolve nohoist libraries from this directory.
     blockList: exclusionList(monorepoMetroTools.blockList),
-    extraNodeModules: monorepoMetroTools.extraNodeModules,
+    extraNodeModules: monorepoMetroTools.extraNodeModules
   },
 };
 

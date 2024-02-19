@@ -45,9 +45,11 @@ function App(): React.JSX.Element {
 						</Text>
 					</View>
         </Section>
+				<View className="mb-4">
+					<Button label="Press me!" onClick={() => console.log('Button pressed')}/>
+				</View>
 				<View>
-					<Button label="Press me!" onClick={() => console.log('Button pressedc')}/>
-					<Alert variant="error" label="This an alert message"/>
+					<Alert variant="success" label="This an alert message"/>
 				</View>
       </ScrollView>
     </SafeAreaView>

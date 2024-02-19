@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { AlertIcon } from '../components/Alert.icon';
+import { AlertIcon } from '../components/icons/Alert.icon';
 import type { IconType, IconComponent, IconProps } from './icon.types';
 
 const IconsComponent: IconComponent = {
