@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import {
+	Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,8 +18,9 @@ import {
   View,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import HelloWorld from '@acme/ui';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import HelloWorld, { Button } from '@acme/ui';
+import { Test } from './components/Test';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -67,8 +69,23 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Section title={HelloWorld}>
-          Read the README.md for more information.
+					<Text>
+        		Read the README.md for more information
+					</Text>
         </Section>
+				<View>
+					<Button label="This the UI Button" onClick={() => console.log('Button pressed')} test="bg-pink"/>
+					<Pressable
+						className="rounded-lg py-4 px-14 w-fit bg-pink text-white active:bg-pinkDark"
+						onPress={() => console.log('pressed native button')}
+					>
+						<Text>This is a button in App.tsx</Text>
+					</Pressable>
+				</View>
+				<Text
+					className="bg-pinkDark my-8"
+				>Lelelelele</Text>
+				<Test/>
       </ScrollView>
     </SafeAreaView>
   );

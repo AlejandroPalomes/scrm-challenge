@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+const nativewind = require("nativewind/tailwind/css")
+
 module.exports = {
   content: ['./src/**/*.tsx'],
 	purge: ['./src/**/*.tsx'],
   theme: {
     colors: {
 			pink: '#E85B81',
+			pinkDark: '#C12F5D',
 			purple: '#5E48E8',
 			blue: '#8CE0F3',
 			white: '#ffffff',
@@ -15,5 +18,5 @@ module.exports = {
 			gray1: '#F9F9F9'
 		}
   },
+	plugins: [nativewind()]
 }
-

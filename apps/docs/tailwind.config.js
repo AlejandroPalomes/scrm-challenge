@@ -2,9 +2,9 @@
 export default {
   content: [
 		"./index.html",
-    "./stories/*"
+    "./stories/*",
+		'../../packages/ui/src/**/*.tsx'
 	],
-	purge: ['../../packages/ui/src/**/*.tsx'],
   theme: {
 		colors: {
 			pink: '#E85B81',
