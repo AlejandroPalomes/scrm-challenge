@@ -3,9 +3,10 @@ import { AlertIcon } from '../components/icons/alert/Alert.icon';
 import AlertSvg from '../components/icons/alert/alert.svg';
 import BellSvg from '../components/icons/bell/bell.svg';
 import SuccessSvg from '../components/icons/success/success.svg';
-import type { IconType, IconComponent, IconProps } from './icon.types';
+import type { IconType, IconComponent, IconProps, IconSVG } from './icon.types';
 import { BellIcon } from '../components/icons/bell/Bell.icon';
 import { SuccessIcon } from '../components/icons/success/Success.icon';
+import { ImageSourcePropType } from 'react-native';
 
 const IconsComponent: IconComponent = {
   alert: AlertIcon,
@@ -13,10 +14,10 @@ const IconsComponent: IconComponent = {
   success: SuccessIcon
 };
 
-const IconsSVG: IconComponent = {
+const IconsSVG: IconSVG = {
   alert: AlertSvg,
-  bell: AlertSvg,
-  success: AlertSvg
+  bell: BellSvg,
+  success: SuccessSvg
 };
 
 export const getIcon = (name: IconType): FC<IconProps> => {
@@ -24,7 +25,7 @@ export const getIcon = (name: IconType): FC<IconProps> => {
   return icon;
 };
 
-export const getSVGIcon = (name: IconType): FC<IconProps> => {
-  const icon = IconsComponent[name];
+export const getSVGIcon = (name: IconType) => {
+  const icon = IconsSVG[name];
   return icon;
 };
