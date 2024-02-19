@@ -7,7 +7,7 @@ const meta: Meta<typeof Alert> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['primary', 'alternative', 'secondary'],
+      options: ['error', 'success', 'notification'],
     },
 		label: {
 			controle: { type: 'input' }

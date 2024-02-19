@@ -26,16 +26,16 @@ export const AlertVariantStyles: AlertStyles = {
 	base: 'rounded-lg py-3 px-6 w-fit',
 	variant: {
 		error: {
-			main: 'bg-success opacity-5',
-			text: 'text-white',
+			main: 'bg-error-light',
+			text: 'text-error-regular',
 		},
 		success: {
-			main: 'bg-success opacity-50',
-			text: 'text-gray4'
+			main: 'bg-success-light',
+			text: 'text-success-regular'
 		},
 		notification: {
-			main: 'bg-notification opacity-50 text-white',
-			text: 'text-white'
+			main: 'bg-notification-light text-white',
+			text: 'text-notification-regular'
 		}}
 }
 
