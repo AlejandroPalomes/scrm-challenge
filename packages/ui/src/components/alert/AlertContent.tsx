@@ -1,7 +1,6 @@
 import React, { type FC } from "react";
 import { AlertVariant, AlertVariantStyles } from "./Alert";
-import { AlertIcon } from "../icons/Alert.icon";
-import AlertSvg from "../icons/alert.svg";
+import { getIcon } from "../../utils/icon.utils";
 
 interface ButtonProps {
   onClick: () => void;
@@ -19,11 +18,12 @@ export const AlertContent: FC<ButtonProps> = ({ onClick, label, variant, disable
 		AlertVariantStyles.base
 	].join(' ');
 
+	const Icon = getIcon(styles.icon.svg);
+
   return (
     <div className={fullStyles} onClick={onClick}>
-			<img src={AlertSvg}/>
-			{/* <AlertIcon color={styles.icon}/> */}
-			{label}
+			<Icon color={styles.icon.color}/>
+			<span>{label}</span>
     </div>
   );
 }

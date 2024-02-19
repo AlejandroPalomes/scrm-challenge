@@ -1,6 +1,7 @@
 import React, { type FC } from "react";
 import { AlertContent } from "./AlertContent";
 import { Colors } from "../../utils/colors";
+import { IconType } from "../../utils/icon.types";
 
 export type AlertVariant = 'error' | 'success' | 'notification';
 export interface AlertProps {
@@ -13,7 +14,10 @@ type VariantStylesI = {
 	[key in AlertVariant]: {
 		main: string,
 		text: string,
-		icon: string
+		icon: {
+			color: string,
+			svg: IconType
+		}
 	};
 }
 
@@ -30,17 +34,26 @@ export const AlertVariantStyles: AlertStyles = {
 		error: {
 			main: 'bg-error-light',
 			text: 'text-error-regular',
-			icon: Colors.error.regular
+			icon: {
+				color: Colors.error.regular,
+				svg: 'alert'
+			}
 		},
 		success: {
 			main: 'bg-success-light',
 			text: 'text-success-regular',
-			icon: Colors.success.regular
+			icon: {
+				color: Colors.success.regular,
+				svg: 'success'
+			}
 		},
 		notification: {
 			main: 'bg-notification-light text-notification-regular',
 			text: 'text-notification-regular',
-			icon: Colors.notification.regular
+			icon: {
+				color: Colors.notification.regular,
+				svg: 'bell'
+			}
 		}}
 }
 

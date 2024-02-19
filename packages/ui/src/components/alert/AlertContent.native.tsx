@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { AlertVariant, AlertVariantStyles } from './Alert';
-import SVG from '../icons/alert.svg';
+import AlertIcon from '../icons/alert/alert.svg';
 
 interface ButtonProps {
   onClose: () => void;
@@ -15,7 +15,7 @@ export const AlertContent: FC<ButtonProps> = ({ onClose, label, variant }) => {
 
   return (
     <View className={fullStyles}>
-			<SVG stroke={styles.icon}/>
+			<AlertIcon stroke={styles.icon.color}/>
       <Text className={styles.text + ' self-start'}>{label}</Text>
     </View>
   );
