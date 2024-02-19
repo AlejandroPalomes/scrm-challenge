@@ -6,13 +6,10 @@
  */
 
 import React from 'react';
-import type { PropsWithChildren } from 'react';
 import {
-	Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Text,
   useColorScheme,
   View,
@@ -20,37 +17,7 @@ import {
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import HelloWorld, { Button } from '@acme/ui';
-import { Test } from './components/Test';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import { Section } from './components/Section';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -69,45 +36,21 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Section title={HelloWorld}>
-					<Text>
-        		Read the README.md for more information
-					</Text>
+					<View className="flex flex-col w-fit space-y-4">
+						<Text>
+							And welcome to this challenge, SCRM x Alejandro Palomes.
+						</Text>
+						<Text>
+							The main idea was to develop a Button and an Alert components, both compatible with React and React Native. Here's an example of how the components look inside a React Native app:
+						</Text>
+					</View>
         </Section>
 				<View>
-					<Button label="This the UI Button" onClick={() => console.log('Button pressed')}/>
-					<Pressable
-						className="rounded-lg py-4 px-14 w-fit bg-pink text-white active:bg-pinkDark"
-						onPress={() => console.log('pressed native button')}
-					>
-						<Text>This is a button in App.tsx</Text>
-					</Pressable>
+					<Button label="Press me!" onClick={() => console.log('Button pressedc')}/>
 				</View>
-				<Text
-					className="bg-pinkDark my-12"
-				>Lelelelele</Text>
-				<Test/>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

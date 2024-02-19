@@ -11,6 +11,9 @@ const meta: Meta<typeof Button> = {
     },
 		label: {
 			controle: { type: 'input' }
+		},
+		disabled: {
+			control: { type: 'boolean' },
 		}
   }
 } as Meta;
@@ -21,7 +24,7 @@ type Story = StoryObj<ButtonProps>;
 
 export const Primary: Story = {
   render: (props) => (
-    <div className="">
+    <div>
       <Button
         {...props}
       />
@@ -29,6 +32,8 @@ export const Primary: Story = {
   ),
   name: 'Button',
   args: {
-    label: 'Press me'
+    label: 'Press me',
+		disabled: false,
+		variant: 'primary'
   },
 };
