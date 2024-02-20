@@ -4,8 +4,8 @@ import { ImageSourcePropType } from "react-native";
 export const Icons = [
   'alert',
 	'bell',
+	'cross',
 	'success'
-
 ] as const;
 export type IconType = typeof Icons[number];
 

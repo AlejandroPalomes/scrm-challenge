@@ -6,7 +6,6 @@ module.exports = {
 		'../../packages/ui/src/**/*.tsx'
 	],
   theme: {
-		// extend: {}
     colors: {
 			success: {
 				regular: '#007B40',

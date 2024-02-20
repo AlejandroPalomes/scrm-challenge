@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,26 +16,49 @@ import {
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import HelloWorld, { Alert, Button } from '@acme/ui';
+import HelloWorld, { Alert, AlertVariant, Button } from '@acme/ui';
 import { Section } from './components/Section';
 
 function App(): React.JSX.Element {
+	const [isErrorShown, setIsErrorShown] = useState<boolean>(false);
+	const [alertType, setAlertType] = useState<AlertVariant>('success');
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker : Colors.white
   };
 
+	const handleOnClickError = () => {
+		setAlertType('error');
+		setIsErrorShown(true);
+	}
+
+	const handleOnClickSuccess = () => {
+		setAlertType('success');
+		setIsErrorShown(true);
+	}
+
+	const handleOnClickNotification = () => {
+		setAlertType('notification');
+		setIsErrorShown(true);
+	}
+
+	const handleOnClickCloseError = () => {
+		setIsErrorShown(false);
+	}
+
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={backgroundStyle} className="h-full">
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Section title={HelloWorld}>
+        style={backgroundStyle}
+			>
+				<Section title={HelloWorld}>
 					<View className="flex flex-col w-fit space-y-4">
 						<Text className="bg-error">
 							And welcome to this challenge, SCRM x Alejandro Palomes.
@@ -44,13 +67,19 @@ function App(): React.JSX.Element {
 							The main idea was to develop a Button and an Alert components, both compatible with React and React Native. Here's an example of how the components look inside a React Native app:
 						</Text>
 					</View>
-        </Section>
-				<View className="mb-4">
-					<Button label="Press me!" onClick={() => console.log('Button pressed')}/>
+				</Section>
+				<View className="py-4">
+					<Button label="Show Success" onPress={handleOnClickSuccess}/>
 				</View>
-				<View>
-					<Alert variant="success" label="This an alert message"/>
+				<View className="py-4">
+					<Button label="Show Notification" variant="alternative" onPress={handleOnClickNotification}/>
 				</View>
+				<View className="py-4">
+					<Button label="Show Error" variant="secondary" onPress={handleOnClickError}/>
+				</View>
+				{isErrorShown && <View className="px-4">
+					<Alert variant={alertType} label={`${alertType}: This is a message`} onClose={handleOnClickCloseError}/>
+				</View>}
       </ScrollView>
     </SafeAreaView>
   );

@@ -22,14 +22,14 @@ type VariantStylesI = {
 }
 
 interface AlertStyles {
-	animation: string;
 	base: string;
+	spacing: string;
 	variant: VariantStylesI;
 }
 
 export const AlertVariantStyles: AlertStyles = {
-	animation: 'transition duration-150',
-	base: 'rounded-lg py-3 px-6 flex flex-row space-x-4',
+	base: 'rounded-lg py-3 px-6',
+	spacing: 'flex flex-row space-x-4 justify-between',
 	variant: {
 		error: {
 			main: 'bg-error-light',
@@ -64,6 +64,6 @@ export const Alert: FC<AlertProps> = ({ onClose, label, variant }) => {
   }
 
   return (
-    <AlertContent variant={variant} onClick={handleOnClose} label={label}/>
+    <AlertContent variant={variant} onClose={handleOnClose} label={label}/>
   );
 }

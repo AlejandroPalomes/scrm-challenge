@@ -3,7 +3,7 @@ import { ButtonContent } from "./ButtonContent";
 
 export type ButtonVariant = 'primary' | 'alternative' | 'secondary';
 export interface ButtonProps {
-  onClick?: () => void;
+  onPress?: () => void;
   label: string;
 	variant?: ButtonVariant;
 	disabled?: boolean;
@@ -40,10 +40,10 @@ export const VariantStyles: ButtonSyles = {
 		}}
 }
 
-export const Button: FC<ButtonProps> = ({ onClick, label, variant = 'primary', disabled = false }) => {
+export const Button: FC<ButtonProps> = ({ onPress, label, variant = 'primary', disabled = false }) => {
 
   const handleOnClick = () => {
-    onClick && onClick();
+    onPress && onPress();
   }
 
   return (
