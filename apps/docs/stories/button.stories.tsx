@@ -14,6 +14,9 @@ const meta: Meta<typeof Button> = {
 		},
 		disabled: {
 			control: { type: 'boolean' },
+		},
+		expand: {
+			control: { type: 'boolean' },
 		}
   }
 } as Meta;
@@ -34,6 +37,7 @@ export const Primary: Story = {
   args: {
     label: 'Press me',
 		disabled: false,
+		expand: false,
 		variant: 'primary',
 		onPress: () => alert('Hello! This action is customizable ☺️')
   },

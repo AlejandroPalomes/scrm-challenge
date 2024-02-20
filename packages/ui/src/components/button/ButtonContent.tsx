@@ -1,21 +1,18 @@
 import React, { type FC } from "react";
-import { ButtonVariant, VariantStyles } from "./Button";
+import { ButtonTextVariants, ButtonVariant, ButtonVariants } from "./Button";
 
 interface ButtonProps {
   onClick: () => void;
   label: string;
 	variant: ButtonVariant;
 	disabled?: boolean;
+	expand?: boolean;
 }
 
-export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant, disabled }) => {
-	const styles = VariantStyles.variant[variant];
+export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant, disabled, expand }) => {
 	const fullStyles = [
-		!disabled ? 'cursor-pointer' : '',
-		styles.getMain(disabled),
-		styles.text,
-		VariantStyles.animation,
-		VariantStyles.getBase(disabled)
+		ButtonVariants({ color: variant, disabled, expand }),
+		ButtonTextVariants({ color: variant })
 	].join(' ');
 
   return (

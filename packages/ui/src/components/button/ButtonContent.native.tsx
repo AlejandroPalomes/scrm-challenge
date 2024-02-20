@@ -1,25 +1,23 @@
 import React, { type FC } from 'react';
 import { Pressable, Text } from 'react-native';
-import { ButtonVariant, VariantStyles } from './Button';
+import { ButtonTextVariants, ButtonVariant, ButtonVariants } from './Button';
 
 interface ButtonProps {
   onClick: () => void;
   label: string;
 	variant?: ButtonVariant
 	disabled?: boolean;
+	expand?: boolean;
 }
 
-export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant = 'primary', disabled }) => {
-	const styles = VariantStyles.variant[variant];
-	const fullStyles = [styles.getMain(disabled), VariantStyles.getBase(disabled), 'self-center'].join(' ')
-
+export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant = 'primary', disabled, expand }) => {
   return (
     <Pressable
-			className={fullStyles}
+			className={ButtonVariants({ color: variant, disabled, expand})}
       onPress={onClick}
 			disabled={disabled}
     >
-      <Text className={styles.text + ' self-center'}>{label}</Text>
+      <Text className={ButtonTextVariants({ color: variant })}>{label}</Text>
     </Pressable>
   );
 }
