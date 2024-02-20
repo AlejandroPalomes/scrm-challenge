@@ -33,6 +33,7 @@ export const Primary: Story = {
   name: 'Alert',
   args: {
     label: 'This is an alert label',
-		variant: 'success'
+		variant: 'success',
+		onClose: () => alert('Hello! This action is customizable ☺️. Although it would mainly close the Alert component')
   },
 };

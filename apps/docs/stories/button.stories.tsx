@@ -34,6 +34,7 @@ export const Primary: Story = {
   args: {
     label: 'Press me',
 		disabled: false,
-		variant: 'primary'
+		variant: 'primary',
+		onPress: () => alert('Hello! This action is customizable ☺️')
   },
 };
