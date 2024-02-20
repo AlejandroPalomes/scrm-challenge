@@ -11,19 +11,6 @@ export interface ButtonProps {
 	expand?: boolean;
 }
 
-type VariantStylesI = {
-	[key in ButtonVariant]: {
-		getMain: (disabled?: boolean) => string,
-		text: string
-	};
-}
-
-interface ButtonSyles {
-	animation: string;
-	getBase: (disabled?: boolean) => string;
-	variant: VariantStylesI;
-}
-
 export const ButtonVariants = tv({
   base: 'rounded-lg py-3.5 px-14 w-fit transition duration-150',
   variants: {
