@@ -33,6 +33,8 @@ Navigate to the project root directory and install the necessary dependencies:
 yarn install
 ```
 
+(Take into account that you'll also need the Turbo CLI)
+
 **Step 3 (optional):** Prepare mobile emulator
 In case you'll like to test the mobile application, don't forget to either prepare the emulator. This project has been testet through Android Studio.
 
@@ -52,3 +54,23 @@ This Turborepo includes the following packages and applications:
 - `apps/docs`: Component documentation site with Storybook
 - `apps/mobile`: React Native application with a single screen including the buttons and alerts
 - `packages/ui`: Core React components
+
+### Demo images for the components
+
+**Alert - Success**
+![alt text](https://github.com/AlejandroPalomes/scrm-challenge/blob/main/assets/alert_succes.png?raw=true)
+
+**Alert - Error**
+![alt text](https://github.com/AlejandroPalomes/scrm-challenge/blob/main/assets/alert_error.png?raw=true)
+
+**Alert - Notification**
+![alt text](https://github.com/AlejandroPalomes/scrm-challenge/blob/main/assets/alert_notification.png?raw=true)
+
+**Button - Primary**
+![alt text](https://github.com/AlejandroPalomes/scrm-challenge/blob/main/assets/button_primary.png?raw=true)
+
+**Button - Alternative**
+![alt text](https://github.com/AlejandroPalomes/scrm-challenge/blob/main/assets/button_alternative.png?raw=true)
+
+**Button - Secondary**
+![alt text](https://github.com/AlejandroPalomes/scrm-challenge/blob/main/assets/button_secondary.png?raw=true)
