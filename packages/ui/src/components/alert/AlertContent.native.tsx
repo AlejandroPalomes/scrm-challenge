@@ -20,9 +20,14 @@ export const AlertContent: FC<AlertContentProps> = ({ onClose, label, variant })
     <View className={fullStyles}>
 			<View className={AlertVariantStyles.spacing}>
 				<Icon stroke={styles.icon.color}/>
-				<Text className={styles.text}>{label}</Text>
+				<Text accessible accessibilityLabel={label} className={styles.text}>{label}</Text>
 			</View>
-			<Pressable className="self-end" onPress={onClose}>
+			<Pressable
+				accessible
+				accessibilityLabel='Close alert'
+				className="self-end"
+				onPress={onClose}
+			>
 				<Cross stroke={Colors.black}/>
 			</Pressable>
     </View>

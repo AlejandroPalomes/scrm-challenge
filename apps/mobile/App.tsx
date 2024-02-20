@@ -20,7 +20,7 @@ import HelloWorld, { Alert, AlertVariant, Button } from '@acme/ui';
 import { Section } from './components/Section';
 
 function App(): React.JSX.Element {
-	const [isErrorShown, setIsErrorShown] = useState<boolean>(false);
+	const [isAlertShown, setIsAlertShown] = useState<boolean>(false);
 	const [alertType, setAlertType] = useState<AlertVariant>('success');
 
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,21 +31,21 @@ function App(): React.JSX.Element {
 
 	const handleOnClickError = () => {
 		setAlertType('error');
-		setIsErrorShown(true);
+		setIsAlertShown(true);
 	}
 
 	const handleOnClickSuccess = () => {
 		setAlertType('success');
-		setIsErrorShown(true);
+		setIsAlertShown(true);
 	}
 
 	const handleOnClickNotification = () => {
 		setAlertType('notification');
-		setIsErrorShown(true);
+		setIsAlertShown(true);
 	}
 
 	const handleOnClickCloseError = () => {
-		setIsErrorShown(false);
+		setIsAlertShown(false);
 	}
 
   return (
@@ -77,7 +77,7 @@ function App(): React.JSX.Element {
 				<View className="py-4">
 					<Button label="Show Error" variant="secondary" onPress={handleOnClickError}/>
 				</View>
-				{isErrorShown && <View className="px-4">
+				{isAlertShown && <View className="px-4">
 					<Alert variant={alertType} label={`${alertType}: This is a message`} onClose={handleOnClickCloseError}/>
 				</View>}
       </ScrollView>

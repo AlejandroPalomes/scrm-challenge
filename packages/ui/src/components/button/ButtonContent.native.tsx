@@ -13,6 +13,9 @@ interface ButtonProps {
 export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant = 'primary', disabled, expand }) => {
   return (
     <Pressable
+			accessible
+			accessibilityLabel={label}
+			accessibilityState={{ disabled }}
 			className={ButtonVariants({ color: variant, disabled, expand})}
       onPress={onClick}
 			disabled={disabled}

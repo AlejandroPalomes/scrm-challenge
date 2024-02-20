@@ -16,7 +16,7 @@ export const ButtonContent: FC<ButtonProps> = ({ onClick, label, variant, disabl
 	].join(' ');
 
   return (
-    <button className={fullStyles} onClick={onClick} disabled={disabled}>
+    <button aria-label={label} className={fullStyles} onClick={onClick} disabled={disabled}>
 			{label}
     </button>
   );

@@ -26,7 +26,7 @@ export const AlertContent: FC<AlertContentProps> = ({ onClose, label, variant })
 				<Icon color={styles.icon.color}/>
 				<span className={styles.text}>{label}</span>
 			</div>
-			<button onClick={onClose}>
+			<button aria-label="Close alert" onClick={onClose}>
 				<CrossIcon color={Colors.black}/>
 			</button>
     </div>
