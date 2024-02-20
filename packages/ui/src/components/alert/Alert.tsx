@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 import { AlertContent } from "./AlertContent";
 import { Colors } from "../../utils/colors";
-import { IconType } from "../../utils/icon.types";
+import { tv } from "tailwind-variants";
 
 export type AlertVariant = 'error' | 'success' | 'notification';
 export interface AlertProps {
@@ -10,51 +10,48 @@ export interface AlertProps {
 	variant: AlertVariant;
 }
 
-type VariantStylesI = {
-	[key in AlertVariant]: {
-		main: string,
-		text: string,
-		icon: {
-			color: string,
-			svg: IconType
-		}
-	};
-}
+export const AlertCardVariants = tv({
+  base: 'rounded-lg py-3 px-6 flex flex-row space-x-4 justify-between',
+  variants: {
+    color: {
+      error: 'bg-error-light',
+      success: 'bg-success-light',
+      notification: 'bg-notification-light'
+    }
+  },
+	defaultVariants: {
+    color: 'success',
+    text: 'success'
+  }
+});
 
-interface AlertStyles {
-	base: string;
-	spacing: string;
-	variant: VariantStylesI;
-}
+export const AlertTextVariants = tv({
+  variants: {
+    color: {
+      error: 'text-error-regular',
+      success: 'text-success-regular',
+      notification: 'text-notification-regular'
+    }
+  },
+	defaultVariants: {
+    color: 'success',
+    text: 'success'
+  }
+});
 
-export const AlertVariantStyles: AlertStyles = {
-	base: 'rounded-lg py-3 px-6',
-	spacing: 'flex flex-row space-x-4 justify-between',
-	variant: {
-		error: {
-			main: 'bg-error-light',
-			text: 'text-error-regular',
-			icon: {
-				color: Colors.error.regular,
-				svg: 'alert'
-			}
-		},
-		success: {
-			main: 'bg-success-light',
-			text: 'text-success-regular',
-			icon: {
-				color: Colors.success.regular,
-				svg: 'success'
-			}
-		},
-		notification: {
-			main: 'bg-notification-light text-notification-regular',
-			text: 'text-notification-regular',
-			icon: {
-				color: Colors.notification.regular,
-				svg: 'bell'
-			}
-		}}
+export const AlertIconVariants = {
+	success: {
+		id: 'success',
+		color: Colors.success.regular
+	},
+	error: {
+		id: 'alert',
+		color: Colors.error.regular
+	},
+	notification: {
+		id: 'bell',
+		color: Colors.notification.regular
+	}
 }
 
 export const Alert: FC<AlertProps> = ({ onClose, label, variant }) => {
