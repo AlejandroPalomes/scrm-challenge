@@ -11,9 +11,6 @@ const meta: Meta<typeof Alert> = {
     },
 		label: {
 			controle: { type: 'input' }
-		},
-		disabled: {
-			control: { type: 'boolean' },
 		}
   }
 } as Meta;
